@@ -52,7 +52,9 @@ button {
     left: 84px;
 }
 
-
+.accordion-item {
+    background: cadetblue;
+}
 
 
 /* ------------------------------------------------------- */
