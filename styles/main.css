@@ -32,12 +32,29 @@ button {
 }
 
 /* ------------------------------------------------------- */
-/* Bootstrap Components Overrides*/
+/* Bootstrap Components Overrides */
+
+/* Navigation */
+.nav-link{
+    font-family: 'Lato', sans-serif;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.nav-link:hover {
+    color: #18382B;
+}
+
+.nav-link.active {
+    border-bottom: 2px solid #18382B;
+    color:#18382B;
+}
+
+/* Carousel */
 .carousel-item {
     background-color: #E6F2E9;
 }
 
-.carousel-control-next .carousel-control-prev {
+.carousel-control-next, .carousel-control-prev {
     top:auto;
     right: auto;
     left: 24px;
@@ -52,10 +69,71 @@ button {
     left: 84px;
 }
 
+/* Accordion */
+
 .accordion-item {
-    background: cadetblue;
+    background: rgb(58, 133, 106);
 }
 
+.accordion {
+color:white;
+margin: auto;
+}
+
+.accordion-header {
+    background-color: black;
+}
+
+.accordion-button.bg-success-subtle {
+    color:white;
+}
+
+/* Card */
+
+.card {
+    border-radius: 150px 150px 12px 12px;
+    background: #f3f3f3;
+    text-align: center;
+    height: 440px;
+    border: none;
+}
+
+.card-img-top {
+    height: 320px;
+    margin:auto;
+    width: auto;
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card-img-top.small {
+    height: 200px;
+}
+
+
+.card-text{
+    color:#18382B;
+}
+
+
+/* Table */
+.table{
+    height: 450px;
+    margin: auto;
+    width: 60%;
+}
+
+.table-img {
+    height: 150px;
+    width:auto;
+}
+
+.btn-btn-danger{
+    margin:auto;
+    height: 50px;
+    width: 100px;
+    border-radius: 35px;
+    text-align: center;
+}
 
 /* ------------------------------------------------------- */
 /* Home Page */
@@ -67,7 +145,11 @@ button {
 }
 
 .hero-image-2 {
-    height: 90vh;
+    height: 95vh;
     position: relative;
     bottom: -100px;
+    border-radius: 150px 150px 12px 12px;
 }
+
+/* ------------------------------------------------------ */
+/* Wishlist */
