@@ -52,14 +52,15 @@ button {
 /* Carousel */
 .carousel-item {
     background-color: #E6F2E9;
+    
 }
 
 .carousel-control-next, .carousel-control-prev {
-    top:auto;
+    top: auto;
     right: auto;
     left: 24px;
     bottom: 24px;
-    width:auto;
+    width: auto;
     background-color: white;
     padding: 12px;
     border-radius: 50%;
