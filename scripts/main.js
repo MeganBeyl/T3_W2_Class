@@ -64,7 +64,7 @@ $(document).ready(function() {
     //------------------------------------------------------------------------
     // Browse
 
-    loadPlants();
+    filterSortPlants();
 });
 
 // ----------------------------------------------------------------------------
@@ -72,6 +72,12 @@ $(document).ready(function() {
 // ----------------------------------------------------------------------------
 function loadPlants(plantsToShow){
     console.log(plantsToShow);
+
+    // Clear all elements in plants container
+
+    $("#plantsContainer").empty();
+
+    // Loop through plants
 
     for (let i = 0; i < plantsToShow.length; i++){
         const plant = plantsToShow[i];
@@ -82,7 +88,7 @@ function loadPlants(plantsToShow){
         $("#plantsContainer").append($("#plantCardTemplate").html());
 
         // 2: Create a variable that contains the most recently added plant card
-        let currentChild = $("#plantContainer").children().eq(i+1);
+        let currentChild = $("#plantContainer").children().eq(i);
 
         // 3: Set the content for the current plant card from the plant array
         $(currentChild).find("#nameText").text(plant.name);
@@ -92,7 +98,7 @@ function loadPlants(plantsToShow){
 
         // 4: Hide the description text from the current card
         $(currentChild).find("#descriptionText").hide();
-    }
+    };
 
     
 
@@ -120,11 +126,36 @@ function filterSortPlants(){
 
     let filteredSortedArrPlants = [];
 
-    //filter plants
-    filteredSortedArrPlants = arrPlants.filter(plant => plant.lightAmount == appliedFilter);
+    // Filter plants
+
+    if(appliedFilter){
+       filteredSortedArrPlants = arrPlants.filter(plant => plant.lightAmount == appliedFilter); 
+    } else {
+        filteredSortedArrPlants = arrPlants;
+    };
+
+    // Sort Plants
+
+    if(appliedSort == "low to high"){
+
+        // Sort the plants from lowest to highest price
+        filteredSortedArrPlants = filteredSortedArrPlants.sort((a,b) => {
+            return a.price - b.price;
+        });
+    } else if(appliedSort == "date added"){
+
+        // Sort the plants from newest to oldest 
+        filteredSortedArrPlants = filteredSortedArrPlants.sort((a,b) => {
+            let da = new Date(a.addedDate);
+            let db = new Date(b.addedDate);
+
+            return db - da;
+        });
+    };
+    
 
     loadPlants(filteredSortedArrPlants);
-}
+};
 
 // ----------------------------------------------------------------------------
 // When a plant card is clicked
